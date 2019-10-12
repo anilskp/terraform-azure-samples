@@ -1,0 +1,5 @@
+prefix = "qrhub"
+location = "westeurope"
+Owner = "Anil"
+CC = "625"
+Environment = "Production"
