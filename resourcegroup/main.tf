@@ -9,6 +9,6 @@ name = "qrazanilter-rg"
 location = "westeurope"
 
 tags = {
-    Owner = "Anils"
+    Owner = "Anil"
   }
 }
