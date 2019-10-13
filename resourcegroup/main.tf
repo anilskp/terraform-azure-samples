@@ -5,7 +5,7 @@ provider azurerm {
 
 resource "azurerm_resource_group" "resource_gp"{
 
-name = "qrazanilter-rg"
+name = "qrazanilter1-rg"
 location = "westeurope"
 
 tags = {
