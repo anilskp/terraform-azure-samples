@@ -1,4 +1,8 @@
 
+# Create a Virtual machine in an existing Subnet 
+# Also create an Network Security group with basic rules
+
+
 provider azurerm {
     subscription_id = "11a0fcee-66ee-4603-b871-79d050820de1"
 }

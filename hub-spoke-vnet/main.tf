@@ -1,3 +1,9 @@
+# Create multiple resources
+# 1. Create a resource group
+# 2. A Hub VNET with 2 Subnets one normal subnet and another gateway subnet
+# 3. A Spoke VNET with Subnet
+# 4. VNET peering  from Hub to  Spoke 
+# 5. VNET Peering from Spoke to hub
 
 provider azurerm {
     subscription_id = "11a0fcee-66ee-4603-b871-79d050820de1"
