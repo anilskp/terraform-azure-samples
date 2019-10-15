@@ -53,6 +53,7 @@ resource "azurerm_network_interface" "main" {
   name                = "${var.prefix}001-nic"
   location            = "${azurerm_resource_group.main.location}"
   resource_group_name = "${azurerm_resource_group.main.name}"
+  network_security_group_id = "${azurerm_network_security_group.dnsg.id}"
 
   ip_configuration {
     name                          = "testconfiguration1"
