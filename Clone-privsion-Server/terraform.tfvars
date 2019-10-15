@@ -1,0 +1,7 @@
+prefix = "dremio"
+location = "westeurope"
+Owner = "Anil"
+CC = "625"
+Environment = "Production"
+dremiosubnet = "dremio"
+spoke1vnet = "qrspoke1-vnet"
