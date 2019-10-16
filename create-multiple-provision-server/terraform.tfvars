@@ -1,0 +1,10 @@
+vnetname = "qrspoke1-vnet"
+subnetname = "provisiosvr"
+vnetresourcegroupname = "qrnetwork-rg"
+newresourcegroupname = "provisionserver-rg"
+newservername = "provisionserver"
+servercount = 2
+location = "westeurope"
+Owner = "Anil"
+CC = "625"
+Environment = "Production"
