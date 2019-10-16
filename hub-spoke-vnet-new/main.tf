@@ -71,7 +71,7 @@ resource "azurerm_network_security_group" "spoke" {
 }
 
 resource "azurerm_subnet" "spoke" {
-  name                      = "provisiosvr"
+  name                      = "management"
   virtual_network_name      = "${azurerm_virtual_network.spoke.name}"
   resource_group_name       = "${azurerm_resource_group.vnet_gp.name}"
   address_prefix            = "11.0.1.0/24"
