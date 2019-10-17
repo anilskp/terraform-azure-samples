@@ -1,6 +1,15 @@
 
+
+# terraform {
+#   backend "azurerm" {
+#     storage_account_name = "terraformstate"
+#     container_name       = "tfstate"
+#     key                  = "terraform.dev.tfstate"
+#   }
+# }
 provider azurerm {
     subscription_id = "11a0fcee-66ee-4603-b871-79d050820de1"
+    
 }
 
 locals {

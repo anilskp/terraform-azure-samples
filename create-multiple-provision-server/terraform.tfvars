@@ -1,5 +1,5 @@
 vnetname = "qrspoke1-vnet"
-subnetname = "provisiosvr"
+subnetname = "management"
 vnetresourcegroupname = "qrnetwork-rg"
 newresourcegroupname = "provisionserver-rg"
 newservername = "provisionserver"
