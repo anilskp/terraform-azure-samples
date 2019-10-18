@@ -5,7 +5,7 @@ provider azurerm {
 
 resource "azurerm_resource_group" "resource2_vnet_gp"{
 
-name = "qrvnet-rg"
+name = "qrvnet1-rg"
 location = "westeurope"
 
 tags = {

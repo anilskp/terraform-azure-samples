@@ -4,7 +4,7 @@ provider azurerm {
 
 resource "azurerm_resource_group" "resource2_vnet_gp"{
 
-name = "qrsimple-rg"
+name = "qrsimple1-rg"
 location = "westeurope"
 
 tags = {
