@@ -4,10 +4,15 @@ provider azurerm {
 
 resource "azurerm_resource_group" "resource2_vnet_gp"{
 
-name = "qrsimple1-rg"
+name = "qrsimple-rg"
 location = "westeurope"
 
 tags = {
     Owner = "Anil"
   }
+
+lifecycle{
+  prevent_destroy = false 
 }
+}
+

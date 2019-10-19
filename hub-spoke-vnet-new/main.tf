@@ -91,6 +91,20 @@ resource "azurerm_subnet_network_security_group_association" "spoke" {
   network_security_group_id = "${azurerm_network_security_group.spoke.id}"
 }
  
+
+resource "azurerm_subnet" "bastion" {
+  name                      = "AzureBastionSubnet"
+  virtual_network_name      = "${azurerm_virtual_network.spoke.name}"
+  resource_group_name       = "${azurerm_resource_group.vnet_gp.name}"
+  address_prefix            = "11.0.2.0/27"
+  #network_security_group_id = "${azurerm_network_security_group.spoke.id}"
+}
+# resource "azurerm_subnet_network_security_group_association" "spoke" {
+#   subnet_id                 = "${azurerm_subnet.spoke.id}"
+#   network_security_group_id = "${azurerm_network_security_group.spoke.id}"
+# }
+
+
 resource "azurerm_virtual_network_peering" "peer1" {
   name                      = "peer1to2"
   resource_group_name       = "${azurerm_resource_group.vnet_gp.name}"
