@@ -1,0 +1,35 @@
+
+
+data "azurerm_application_security_group" "asg" {
+  for_each            = {for rule in local.asg_map : rule.asg_name => rule}
+  name                = each.value.asg_name
+  resource_group_name = var.resource_group_name
+}
+
+resource "azurerm_network_security_rule" "network-security-rule" {
+  for_each                                   = {for rule in local.security_group_rules : rule.name => rule}
+  name                                       = each.value.name
+  priority                                   = each.value.priority
+  direction                                  = each.value.direction
+  access                                     = each.value.access
+  protocol                                   = each.value.protocol
+  source_port_range                          = each.value.source_port == "*" ? each.value.source_port : null
+  source_port_ranges                         = each.value.source_port != "*" ? split(",", each.value.source_port) : null
+  destination_port_range                     = each.value.destination_port == "*" ? each.value.destination_port : null
+  destination_port_ranges                    = each.value.destination_port != "*" ? split(",", each.value.destination_port) : null
+  source_address_prefix                      = length(split(",", each.value.source_address_prefix)) < 2 ? each.value.source_address_prefix : null
+  source_address_prefixes                    = length(split(",", each.value.source_address_prefix)) > 1 ? split(",", each.value.source_address_prefix) : null
+  destination_address_prefix                 = length(split(",", each.value.destination_address_prefix)) < 2 ? each.value.destination_address_prefix : null
+  destination_address_prefixes               = length(split(",", each.value.destination_address_prefix)) > 1 ? split(",", each.value.destination_address_prefix) : null
+  source_application_security_group_ids      = each.value.source_asg != "" ? [
+    data.azurerm_application_security_group.asg[each.value.source_asg].id] : null
+  destination_application_security_group_ids = each.value.destination_asg != "" ? [
+    data.azurerm_application_security_group.asg[each.value.destination_asg].id] : null
+  resource_group_name                        = var.resource_group_name
+  network_security_group_name                = azurerm_network_security_group.network-security-group.name
+}
+
+resource "azurerm_subnet_network_security_group_association" "network-security-group-association" {
+  subnet_id                 = azurerm_subnet.subnet.id
+  network_security_group_id = azurerm_network_security_group.network-security-group.id
+}
